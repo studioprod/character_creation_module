@@ -1,5 +1,40 @@
 from random import randint
 
+DEFAULT_ATTACK = 5
+
+class Character:
+    # Константа для диапазона очков урона.
+    RANGE_VALUE_ATTACK = (1, 3)
+
+ # Объявляем конструктор класса.
+    def __init__(self, name):
+        self.name = name
+    
+# Объявляем метод атаки
+    # Описываем метод атаки.
+    def attack(self):
+        # Вместо диапазона записана переменная класса.
+        # Оператор * распаковывает передаваемый кортеж.
+        value_attack = DEFAULT_ATTACK + randint(*self.RANGE_VALUE_ATTACK)
+        return (f'{self.name} нанёс противнику урон, равный {value_attack}')
+        
+# Объявляем метод защиты.
+    def defence(self):
+        ...
+    
+# Объявляем метод специального умения.
+    def special(self):
+        ...
+
+class Warrior(Character):
+    ...
+
+class Mage(Character):
+    ...
+
+class Healer(Character):
+    ...
+
 
 def attack(char_name: str, char_class: str) -> str:
     """Атака противника."""
